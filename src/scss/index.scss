@@ -1,0 +1,66 @@
+@mixin size ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin text ($ff, $fsize, $fstyle, $lh, $color, $fw) {
+    font-family: $ff;
+    font-style: $fstyle;
+    font-weight: $fw;
+    font-size: $fsize;
+    line-height: $lh;
+    color: $color
+}
+
+body {
+    * {
+        font-family: sans-serif;
+    }
+
+    main {
+        @include size(1440px, 1080px);
+        border: 1px solid rgba(66, 86, 122, 0.1);
+        margin: 0 auto;
+
+
+
+        p {
+            @include text('PT Sans', 200px, normal, 160px, #5D5FEF, 700);
+            margin: 0;
+        }
+
+
+        .slider {
+            max-width: 1280px;
+            overflow: hidden;
+           
+
+            .swiper-container {
+                max-width: 400px;
+                .slider-content {
+
+
+
+                    p {
+                        @include text('PT Sans', 20px, normal, 30px, #42567A, 400);
+                        margin-right: 80px;
+                    }
+
+                    h3 {
+                        @include text('Bebas Neue', 25px, normal, 120%, #3877EE, 400);
+                    }
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+}
