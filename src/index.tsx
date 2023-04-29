@@ -1,7 +1,7 @@
 import React from "react";
+import  ReactDOM  from "react-dom";
+import Index from './app';
 
-const HelloWorld=()=>
-    <div>Hey guys!!!!</div>
+import './css/index.css'
 
-
-export default HelloWorld;
+ReactDOM.render(<Index />, document.getElementById("root"))
