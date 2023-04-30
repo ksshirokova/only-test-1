@@ -43,13 +43,32 @@ body {
         border: 1px solid rgba(66, 86, 122, 0.1);
         margin: 0 auto;
         padding: 0 40px 0 80px;
+        position: relative;
 
+       
 
+        .years{
+            display: flex;
+            position: absolute;
+            top:400px;
+            right: 250px;
+            .first-year{
+                
+                @include text('PT Sans',200px ,normal ,160px , #5D5FEF, 700 );
+                margin: 0 120px 0 0 ;
+                
 
-        // p {
-        //     @include text('PT Sans', 200px, normal, 160px, #5D5FEF, 700);
-        //     margin: 0;
-        // }
+            }
+            .last-year{
+                
+                @include text('PT Sans',200px ,normal ,160px ,#EF5DA8, 700 );
+                margin: 0;
+                
+
+            }
+        }
+
+        
 
         .slider-container {
 
@@ -100,9 +119,10 @@ body {
             border: 1px solid rgba(66, 86, 122, 0.2);
             border-radius: 50%;
             position: relative;
+            margin: 215px auto 0;
 
 
-
+            
             .first-circle {
                 
                 @extend %circle;

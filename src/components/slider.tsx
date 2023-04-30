@@ -18,7 +18,7 @@ export default function Slider({ data }) {
     //         ref.current.swiper.slidePrev();
     //     }
     // };
-data.map(el=>console.log(el.year))
+
     return (
 
         <section className="slider-container">

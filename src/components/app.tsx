@@ -8,14 +8,14 @@ import { scienceData } from "../utils/constants";
 
 
 function App(){
-    const [data, setData] = useState(scienceData)
+   
     
     return(
     <main>
-        <p>2015</p>
         
+       
         <Circle />
-        <Slider data={data}/>
+        
     </main>
     )
 

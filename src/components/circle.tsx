@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import Slider from "./slider";
+import { carsData, cinemaData, literatureData, pencilData, scienceData, tablesData } from "../utils/constants";
 
 export default function Circle() {
-    
+    const [data, setData] = useState(scienceData)
+    const [name, setName] = useState('Наука')
     const [deg, setDeg] = useState(0);
     const mainCircle: any = useRef();
     const circleFirst: any = useRef();
@@ -19,7 +22,7 @@ export default function Circle() {
     const numberFive: any = useRef();
     const numberSix: any = useRef();
 
-    
+
 
     let tl = gsap.timeline();
 
@@ -37,6 +40,7 @@ export default function Circle() {
             duration: 0.2,
         });
     };
+
     const mouseLeave = (circleRef, numberRef) => {
         tl.to(circleRef.current, {
             scale: 1,
@@ -55,6 +59,7 @@ export default function Circle() {
             "-=0.5"
         );
     };
+
     const rotateFirstCircle = () => {
 
         gsap.fromTo(mainCircle.current, {
@@ -62,30 +67,35 @@ export default function Circle() {
         }, {
             rotate: "-360deg",
         });
-        
-        console.log(mainCircle.current._gsap)
+
+
     };
+
     const rotateSecondCircle = () => {
         gsap.fromTo(mainCircle.current, {
             rotate: "0",
         }, {
             rotate: "-60deg",
         },);
-        
+        setData(cinemaData)
     };
+
     const rotateThirdCircle = () => {
         gsap.fromTo(mainCircle.current, {
             rotate: "-60deg",
         }, {
             rotate: "-120deg",
         },);
+        setData(literatureData)
     };
+
     const rotateForthCircle = () => {
         gsap.fromTo(mainCircle.current, {
             rotate: "-120deg",
         }, {
             rotate: "-180deg",
         },);
+        setData(carsData)
     };
     const rotateFifthCircle = () => {
         gsap.fromTo(mainCircle.current, {
@@ -93,6 +103,7 @@ export default function Circle() {
         }, {
             rotate: "-240deg",
         },);
+        setData(tablesData)
     };
     const rotateSixthCircle = () => {
         gsap.fromTo(mainCircle.current, {
@@ -100,76 +111,88 @@ export default function Circle() {
         }, {
             rotate: "-300deg",
         },);
+        setData(pencilData)
     };
-    console.log(deg)
+
     return (
-        <div className="main-circle" ref={mainCircle}>
-            <div
-                className="first-circle"
-                ref={circleFirst}
-                onClick={rotateFirstCircle}
-                onMouseEnter={() => mouseEnter(circleFirst, numberOne)}
-                onMouseLeave={() => mouseLeave(circleFirst, numberOne)}
-            >
-                <p className="text" ref={numberOne}>
-                    1
-                </p>
+        
+
+<>
+<div className="years">
+                <h3 className="first-year">{data[0].year}</h3>
+                <h3 className="last-year">{data[data.length -1].year}</h3>
             </div>
-            <div
-                className="second-circle"
-                ref={circleSecond}
-                onClick={rotateSecondCircle}
-                onMouseEnter={() => mouseEnter(circleSecond, numberTwo)}
-                onMouseLeave={() => mouseLeave(circleSecond, numberTwo)}
-            >
-                <p className="text" ref={numberTwo}>
-                    2
-                </p>
+            <div className="main-circle" ref={mainCircle}>
+           
+                <div
+                    className="first-circle"
+                    ref={circleFirst}
+                    onClick={rotateFirstCircle}
+                    onMouseEnter={() => mouseEnter(circleFirst, numberOne)}
+                    onMouseLeave={() => mouseLeave(circleFirst, numberOne)}
+                >
+                    <p className="text" ref={numberOne}>
+                        1
+                    </p>
+                </div>
+                <div
+                    className="second-circle"
+                    ref={circleSecond}
+                    onClick={rotateSecondCircle}
+                    onMouseEnter={() => mouseEnter(circleSecond, numberTwo)}
+                    onMouseLeave={() => mouseLeave(circleSecond, numberTwo)}
+                >
+                    <p className="text" ref={numberTwo}>
+                        2
+                    </p>
+                </div>
+                <div
+                    className="third-circle"
+                    ref={circleThird}
+                    onClick={rotateThirdCircle}
+                    onMouseEnter={() => mouseEnter(circleThird, numberThree)}
+                    onMouseLeave={() => mouseLeave(circleThird, numberThree)}
+                >
+                    <p className="text" ref={numberThree}>
+                        3
+                    </p>
+                </div>
+                <div
+                    className="forth-circle"
+                    ref={circleForth}
+                    onClick={rotateForthCircle}
+                    onMouseEnter={() => mouseEnter(circleForth, numberFour)}
+                    onMouseLeave={() => mouseLeave(circleForth, numberFour)}
+                >
+                    <p className="text" ref={numberFour}>
+                        4
+                    </p>
+                </div>
+                <div
+                    className="fifth-circle"
+                    ref={circleFifth}
+                    onClick={rotateFifthCircle}
+                    onMouseEnter={() => mouseEnter(circleFifth, numberFive)}
+                    onMouseLeave={() => mouseLeave(circleFifth, numberFive)}
+                >
+                    <p className="text" ref={numberFive}>
+                        5
+                    </p>
+                </div>
+                <div
+                    className="sixth-circle"
+                    ref={circleSixth}
+                    onClick={rotateSixthCircle}
+                    onMouseEnter={() => mouseEnter(circleSixth, numberSix)}
+                    onMouseLeave={() => mouseLeave(circleSixth, numberSix)}
+                >
+                    <p className="text" ref={numberSix}>
+                        6
+                    </p>
+                </div>
             </div>
-            <div
-                className="third-circle"
-                ref={circleThird}
-                onClick={rotateThirdCircle}
-                onMouseEnter={() => mouseEnter(circleThird, numberThree)}
-                onMouseLeave={() => mouseLeave(circleThird, numberThree)}
-            >
-                <p className="text" ref={numberThree}>
-                    3
-                </p>
-            </div>
-            <div
-                className="forth-circle"
-                ref={circleForth}
-                onClick={rotateForthCircle}
-                onMouseEnter={() => mouseEnter(circleForth, numberFour)}
-                onMouseLeave={() => mouseLeave(circleForth, numberFour)}
-            >
-                <p className="text" ref={numberFour}>
-                    4
-                </p>
-            </div>
-            <div
-                className="fifth-circle"
-                ref={circleFifth}
-                onClick={rotateFifthCircle}
-                onMouseEnter={() => mouseEnter(circleFifth, numberFive)}
-                onMouseLeave={() => mouseLeave(circleFifth, numberFive)}
-            >
-                <p className="text" ref={numberFive}>
-                    5
-                </p>
-            </div>
-            <div
-                className="sixth-circle"
-                ref={circleSixth}
-                onClick={rotateSixthCircle}
-                onMouseEnter={() => mouseEnter(circleSixth, numberSix)}
-                onMouseLeave={() => mouseLeave(circleSixth, numberSix)}
-            >
-                <p className="text" ref={numberSix}>
-                    6
-                </p>
-            </div>
-        </div>
+            
+            <Slider data={data} />
+       </>
     );
 }
