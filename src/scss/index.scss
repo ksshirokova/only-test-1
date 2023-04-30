@@ -12,6 +12,27 @@
     color: $color
 }
 
+%circle {
+    @include size(4px, 4px);
+    position: absolute;
+    border: 1px solid rgba(66, 86, 122, 0.2);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: rgb(66, 86, 122);
+
+    display: flex;
+    background: rgb(66, 86, 122);
+
+
+    .text {
+        font-size: 5px;
+        opacity: 0;
+
+    }
+}
+
+
 body {
     * {
         font-family: sans-serif;
@@ -25,20 +46,20 @@ body {
 
 
 
-        p {
-            @include text('PT Sans', 200px, normal, 160px, #5D5FEF, 700);
-            margin: 0;
-        }
+        // p {
+        //     @include text('PT Sans', 200px, normal, 160px, #5D5FEF, 700);
+        //     margin: 0;
+        // }
 
         .slider-container {
-            
+
             display: flex;
+
             .button {
                 border: 1px solid rgba(66, 86, 122, 0.1);
                 border-radius: 50%;
                 @include size(40px, 40px);
                 margin: 40px 0 0 auto
-                
             }
 
             .slider {
@@ -72,6 +93,60 @@ body {
             }
 
 
+        }
+
+        .main-circle {
+            @include size(530px, 530px);
+            border: 1px solid rgba(66, 86, 122, 0.2);
+            border-radius: 50%;
+            position: relative;
+
+
+
+            .first-circle {
+                
+                @extend %circle;
+                top: 31px;
+                right: 132px;
+
+
+            }
+
+            .second-circle {
+               
+                @extend %circle;
+                top: 252px;
+                right: -3px;
+            }
+
+            .third-circle {
+                
+                @extend %circle;
+                bottom: 33px;
+                right: 128px;
+            }
+
+            .forth-circle {
+               
+                @extend %circle;
+                bottom: 38px;
+                left: 120px;
+            }
+
+            .fifth-circle {
+                
+                @extend %circle;
+                top: 262px;
+                left: -3px;
+            }
+
+            .sixth-circle {
+                
+                
+                @extend %circle;
+                top: 31px;
+                left: 132px;
+            }
         }
 
 
