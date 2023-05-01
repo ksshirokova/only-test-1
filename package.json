@@ -36,6 +36,8 @@
   "dependencies": {
     "gsap": "^3.11.5",
     "node-sass": "^8.0.0",
+    "react-countup": "^6.4.2",
+    "react-flip-numbers": "^3.0.8",
     "react-id-swiper": "^4.0.0"
   }
 }

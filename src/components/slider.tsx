@@ -13,11 +13,11 @@ export default function Slider({ data }) {
         }
     };
 
-    // const goPrev = () => {
-    //     if (ref.current !== null && ref.current.swiper !== null) {
-    //         ref.current.swiper.slidePrev();
-    //     }
-    // };
+    const goPrev = () => {
+        if (ref.current !== null && ref.current.swiper !== null) {
+            ref.current.swiper.slidePrev();
+        }
+    };
 
     return (
 
