@@ -7,7 +7,7 @@ import { carsData, cinemaData, literatureData, pencilData, scienceData, tablesDa
 export default function Circle() {
     const [data, setData] = useState(scienceData)
     const [name, setName] = useState('Наука')
-    const [deg, setDeg] = useState(0);
+
     const mainCircle: any = useRef();
     const circleFirst: any = useRef();
     const circleSecond: any = useRef();
@@ -21,9 +21,21 @@ export default function Circle() {
     const numberFour: any = useRef();
     const numberFive: any = useRef();
     const numberSix: any = useRef();
+    const yearsRef: any = useRef();
 
 
-
+    useEffect(() => {
+        linearYearsAppearance()
+    })
+    const linearYearsAppearance=()=>{
+        gsap.fromTo(yearsRef.current, {
+            opacity: 0,
+            duration: 1.5
+        }, {
+            opacity:1,
+            duration: 1.5
+        })
+    }
     let tl = gsap.timeline();
 
     const mouseEnter = (circleRef, numberRef) => {
@@ -67,8 +79,9 @@ export default function Circle() {
         }, {
             rotate: "-360deg",
         });
-
-
+        setData(scienceData)
+        setName('Наука');
+        linearYearsAppearance()
     };
 
     const rotateSecondCircle = () => {
@@ -78,6 +91,9 @@ export default function Circle() {
             rotate: "-60deg",
         },);
         setData(cinemaData)
+        setName('Кино')
+        linearYearsAppearance()
+        
     };
 
     const rotateThirdCircle = () => {
@@ -86,7 +102,9 @@ export default function Circle() {
         }, {
             rotate: "-120deg",
         },);
-        setData(literatureData)
+        setData(literatureData);
+        setName('Литература')
+        
     };
 
     const rotateForthCircle = () => {
@@ -95,7 +113,10 @@ export default function Circle() {
         }, {
             rotate: "-180deg",
         },);
+
         setData(carsData)
+        setName('Машины')
+       
     };
     const rotateFifthCircle = () => {
         gsap.fromTo(mainCircle.current, {
@@ -103,7 +124,9 @@ export default function Circle() {
         }, {
             rotate: "-240deg",
         },);
+        // mouseEnter(circleFifth, numberFive)
         setData(tablesData)
+        setName('Столы')
     };
     const rotateSixthCircle = () => {
         gsap.fromTo(mainCircle.current, {
@@ -112,18 +135,21 @@ export default function Circle() {
             rotate: "-300deg",
         },);
         setData(pencilData)
+        setName('Карандаши')
     };
 
     return (
-        
 
-<>
-<div className="years">
+
+        <>
+        <h1>Исторические даты</h1>
+            <p className="category">{name}</p>
+            <div className="years" ref={yearsRef}>
                 <h3 className="first-year">{data[0].year}</h3>
-                <h3 className="last-year">{data[data.length -1].year}</h3>
+                <h3 className="last-year">{data[data.length - 1].year}</h3>
             </div>
             <div className="main-circle" ref={mainCircle}>
-           
+
                 <div
                     className="first-circle"
                     ref={circleFirst}
@@ -191,8 +217,8 @@ export default function Circle() {
                     </p>
                 </div>
             </div>
-            
+
             <Slider data={data} />
-       </>
+        </>
     );
 }

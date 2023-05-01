@@ -44,31 +44,65 @@ body {
         margin: 0 auto;
         padding: 0 40px 0 80px;
         position: relative;
+        box-sizing: border-box;
 
-       
+        h1 {
+            @include text ('PT Sans', 56px, normal, 120%, #42567A, 700);
+            margin: 0;
+            max-width: 353px;
+            position: absolute;
+            top: 170px;
+            left: 0px;
+            padding-left: 78px;
+            background: linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(to bottom,#3877EE
+                ,#EF5DA8) border-box;
 
-        .years{
+            border-left: 5px solid transparent;
+            border-top:1px solid white;
+            border-right:1px solid white;
+            border-bottom:1px solid white;
+           
+
+
+
+
+        }
+
+        .category {
+            position: absolute;
+            top: 228px;
+            left: 956px;
+            @include text ('PT Sans', 20px, normal, 30px, #42567A, 700)
+        }
+
+
+
+        .years {
             display: flex;
             position: absolute;
-            top:400px;
+            top: 400px;
             right: 250px;
-            .first-year{
-                
-                @include text('PT Sans',200px ,normal ,160px , #5D5FEF, 700 );
-                margin: 0 120px 0 0 ;
-                
+            opacity: 0;
+
+            .first-year {
+
+                @include text('PT Sans', 200px, normal, 160px, #5D5FEF, 700);
+                margin: 0 120px 0 0;
+
 
             }
-            .last-year{
-                
-                @include text('PT Sans',200px ,normal ,160px ,#EF5DA8, 700 );
+
+            .last-year {
+
+                @include text('PT Sans', 200px, normal, 160px, #EF5DA8, 700);
                 margin: 0;
-                
+
 
             }
         }
 
-        
+
 
         .slider-container {
 
@@ -122,9 +156,9 @@ body {
             margin: 215px auto 0;
 
 
-            
+
             .first-circle {
-                
+
                 @extend %circle;
                 top: 31px;
                 right: 132px;
@@ -133,36 +167,36 @@ body {
             }
 
             .second-circle {
-               
+
                 @extend %circle;
                 top: 252px;
                 right: -3px;
             }
 
             .third-circle {
-                
+
                 @extend %circle;
                 bottom: 33px;
                 right: 128px;
             }
 
             .forth-circle {
-               
+
                 @extend %circle;
                 bottom: 38px;
                 left: 120px;
             }
 
             .fifth-circle {
-                
+
                 @extend %circle;
                 top: 262px;
                 left: -3px;
             }
 
             .sixth-circle {
-                
-                
+
+
                 @extend %circle;
                 top: 31px;
                 left: 132px;
