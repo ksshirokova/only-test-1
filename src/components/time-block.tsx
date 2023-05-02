@@ -33,7 +33,7 @@ export default function TimeBlock() {
   const numberFive: any = useRef();
   const numberSix: any = useRef();
 
-  const [thirdDeg, setThirdDeg] = useState<number>(60);
+  
 
   let tl = gsap.timeline();
 
@@ -46,7 +46,7 @@ export default function TimeBlock() {
       width: "19px",
       height: "19px",
       duration: 0.5,
-      backgroundColor: "#fff",
+      backgroundColor: "#F4F5F9",
     });
 
     tl.to(numberRef.current, {
@@ -100,7 +100,8 @@ export default function TimeBlock() {
     name: string,
     fromDeg: number,
     toDeg: number,
-    numberDeg: number
+    numberDeg: number,
+    num: number
   ) => {
     gsap.fromTo(
       mainCircle.current,
@@ -114,39 +115,40 @@ export default function TimeBlock() {
 
     setData(typeOfData);
 
+    setNumber(num)
     setName(name);
     rotateNumbers(numberDeg);
-    setThirdDeg(thirdDeg + toDeg);
-    console.log(thirdDeg);
+    
+    
   };
 
   const rotateBack = () => {
-    number > 1 && setNumber(number - 1);
+    
 
-    name == "Кино" && rotateCircle(scienceData, "Наука", 0, 0, 0);
+    name == "Кино" && rotateCircle(scienceData, "Наука", 0, 0, 0, 1);
 
-    name == "Литература" && rotateCircle(cinemaData, "Кино", 60, 120, 120);
+    name == "Литература" && rotateCircle(cinemaData, "Кино", 60, 120, 120, 2);
 
     name == "Машины" &&
-      rotateCircle(literatureData, "Литература", 120, 180, 180);
+      rotateCircle(literatureData, "Литература", 120, 180, 180, 3);
 
-    name == "Столы" && rotateCircle(carsData, "Машины", 180, 240, 240);
+    name == "Столы" && rotateCircle(carsData, "Машины", 180, 240, 240, 4);
 
-    name == "Карандаши" && rotateCircle(tablesData, "Столы", 240, 300, 300);
+    name == "Карандаши" && rotateCircle(tablesData, "Столы", 240, 300, 300, 5);
   };
   const rotateForward = () => {
-    number <= 5 && setNumber(number + 1);
+   
 
-    name == "Наука" && rotateCircle(cinemaData, "Кино", 0, 60, 60);
+    name == "Наука" && rotateCircle(cinemaData, "Кино", 0, -60, 60, 2);
 
     name == "Кино" &&
-      rotateCircle(literatureData, "Литература", -60, -120, -120);
+      rotateCircle(literatureData, "Литература", -60, -120, 120, 3);
 
-    name == "Литература" && rotateCircle(carsData, "Машины", -120, -180, -180);
+    name == "Литература" && rotateCircle(carsData, "Машины", -120, -180, 180, 4);
 
-    name == "Машины" && rotateCircle(tablesData, "Столы", -180, -240, 240);
+    name == "Машины" && rotateCircle(tablesData, "Столы", -180, -240, 240, 5);
 
-    name == "Столы" && rotateCircle(pencilData, "Карандаши", -240, -300, 300);
+    name == "Столы" && rotateCircle(pencilData, "Карандаши", -240, -300, 300, 6);
   };
 
   return (
@@ -216,7 +218,7 @@ export default function TimeBlock() {
         <div
           className="circle first-circle"
           ref={circleFirst}
-          onClick={() => rotateCircle(scienceData, "Наука", -300, -360, 360)}
+          onClick={() => rotateCircle(scienceData, "Наука", -300, -360, 360, 1)}
           onMouseEnter={() => mouseEnter(circleFirst, numberOne)}
           onMouseLeave={() => mouseLeave(circleFirst, numberOne)}
         >
@@ -227,7 +229,7 @@ export default function TimeBlock() {
         <div
           className="circle second-circle"
           ref={circleSecond}
-          onClick={() => rotateCircle(cinemaData, "Кино", 0, -60, 60)}
+          onClick={() => rotateCircle(cinemaData, "Кино", 0, -60, 60, 2)}
           onMouseEnter={() => mouseEnter(circleSecond, numberTwo)}
           onMouseLeave={() => mouseLeave(circleSecond, numberTwo)}
         >
@@ -239,7 +241,7 @@ export default function TimeBlock() {
           className="third-circle"
           ref={circleThird}
           onClick={() =>
-            rotateCircle(literatureData, "Литература", -60, -120, 120)
+            rotateCircle(literatureData, "Литература", -60, -120, 120, 3)
           }
           onMouseEnter={() => mouseEnter(circleThird, numberThree)}
           onMouseLeave={() => mouseLeave(circleThird, numberThree)}
@@ -251,7 +253,7 @@ export default function TimeBlock() {
         <div
           className="forth-circle"
           ref={circleForth}
-          onClick={() => rotateCircle(carsData, "Машины", -120, -180, 180)}
+          onClick={() => rotateCircle(carsData, "Машины", -120, -180, 180, 4)}
           onMouseEnter={() => mouseEnter(circleForth, numberFour)}
           onMouseLeave={() => mouseLeave(circleForth, numberFour)}
         >
@@ -262,7 +264,7 @@ export default function TimeBlock() {
         <div
           className="fifth-circle"
           ref={circleFifth}
-          onClick={() => rotateCircle(tablesData, "Столы", -180, -240, 240)}
+          onClick={() => rotateCircle(tablesData, "Столы", -180, -240, 240, 5)}
           onMouseEnter={() => mouseEnter(circleFifth, numberFive)}
           onMouseLeave={() => mouseLeave(circleFifth, numberFive)}
         >
@@ -273,7 +275,7 @@ export default function TimeBlock() {
         <div
           className="sixth-circle"
           ref={circleSixth}
-          onClick={() => rotateCircle(pencilData, "Карандаши", -240, -300, 300)}
+          onClick={() => rotateCircle(pencilData, "Карандаши", -240, -300, 300, 6)}
           onMouseEnter={() => mouseEnter(circleSixth, numberSix)}
           onMouseLeave={() => mouseLeave(circleSixth, numberSix)}
         >
