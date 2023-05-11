@@ -4,4 +4,4 @@
 
 ## Скрин
 
-<img src="./1.gif" width="250" />
+<img src="./1.gif" width="500" />
