@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Swiper from "react-id-swiper";
 import { useRef } from "react";
 import { TData } from "../utils/types";
+import { gsap } from "gsap";
 
 export default function Slider({ data }: { data: TData[] }) {
   const ref: any = useRef(null);
